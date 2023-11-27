@@ -1,23 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+import MyForm from './components/MyForm';
+import { useState } from 'react';
 
 function App() {
+  const [name, setName] = useState('');
+  const [surname, setSurname] = useState('');
+  const [email, setEmail] = useState('');
+  const [birthYear, setBirthYear] = useState('');
+  const [birthPlace, setBirthPlace] = useState('');
+
+  const submitHandler=({newName,newSurname,newEmail,newBirthYear,newBirthPlace})=>{
+    setName(newName)
+    setSurname(newSurname)
+    setEmail(newEmail)
+    setBirthYear(newBirthYear)
+    setBirthPlace(newBirthPlace)
+
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      welcome {name}
+   <MyForm submitHandler={submitHandler}/>
     </div>
   );
 }
